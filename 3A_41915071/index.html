@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="naver-site-verification" content="fd80c9226500f1734eb67a4bbeeacc194a6a7e31" />
+
+  <title>plc정보들</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
+  <!-- https://fonts.google.com/specimen/Open+Sans -->
+  <link rel="stylesheet" href="css/all.min.css" />
+  <!-- https://fontawesome.com/ -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- https://getbootstrap.com/ -->
+  <link rel="stylesheet" href="css/tooplate-style.css" />
+  <!--
+Tooplate 2111 Pro Line
+http://www.tooplate.com/view/2111-pro-line
+-->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      // https://dashboard.emailjs.com/admin/integration
+      emailjs.init('user_ROx6hAylPh8qu6FMrAZo2');
+    })();
+  </script>
+  <script type="text/javascript">
+    window.onload = function () {
+      document.getElementById('contact-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        // generate a five digit number for the contact_number variable
+        this.contact_number.value = Math.random() * 100000 | 0;
+        // these IDs from the previous steps
+        emailjs.sendForm('joko0819', 'template_cshwbsh', this)
+          .then(function () {
+            console.log('SUCCESS!');
+          }, function (error) {
+            console.log('FAILED...', error);
+          });
+      });
+    }
+  </script>
+
+</head>
+
+<body>
+  <!-- page header -->
+  <div class="container" id="home">
+    <div class="col-12 text-center">
+      <div class="tm-page-header">
+        <i class="fas fa-4x fa-laptop-code mr-4"></i>
+        <h1 class="d-inline-block text-uppercase">PLC WORLD</h1>
+      </div>
+    </div>
+  </div>
+  <!-- navbar -->
+  <div class="tm-nav-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="navbar navbar-expand-md navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tmMainNav"
+              aria-controls="tmMainNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="tmMainNav">
+              <ul class="navbar-nav mx-auto tm-navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#program">작화 작동예시</a>
+                  
+
+
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#activities">PLC의 동작요소들</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#company">PLC의 원리</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#contact">문의 하기</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link external" href="https://www.ls-electric.com/ko/education/step1?v=1/">국내PLC기업</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Banner -->
+  <section class="tm-banner-section" id="tmVideoSection">
+    <div class="container tm-banner-text-container">
+      <div class="row">
+        <div class="col-12">
+          <header>
+            <h2 class="tm-banner-title">PLC WORLD</h2>
+            <p class="mx-auto tm-banner-subtitle">
+              PLC 관련 각종정보를 담은 홈페이지입니다
+            </p>
+          </header>
+        </div>
+      </div>
+    </div>
+
+    <!-- Video -->
+    <video id="hero-vid" autoplay="" loop="" muted>
+      <source src="videos/dd.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
+  <!-- program -->
+  <div class="container tm-program-section" id="program">
+
+    <hr>
+    <section class="col-md-6 col-sm-12 tm-program-block">
+      <header class="tm-program-header">
+    <i class="fas fa-5x fa-clock tm-program-icon"></i>
+    <h3 class="tm-program-h">전자시계 작화및 작동</h3>
+  
+    <br>
+    <br>
+    
+    </section>
+
+      <video src="videos/plc1.mp4" width="1300" height="500" autoplay controls></video>
+      <br>
+      <br>
+
+      <br>
+      <br>
+
+
+    </header>
+
+    <img src="img/plc2.jpg" width="1000" height="700" alt="Image" class="tm-activity-img" />
+    <hr>
+    <p>
+      먼저 제가 사용한 작화프로그램은 미씨스비사의 GX developer version8 입니다 그리고 그 작화한 프로그램의 동작을 구현해보는 터치판넬 프로그램에는 GT Desiner3를 사용하여
+      나타내었습니다.
+    </p>
+    <p>
+      우선 이 디지털시계 동작에서는 X1에 시작버튼, X2에 정지버튼, X3에 리셋버튼을 배치하였습니다
+      그리고 XA는 초를재는부분을 수정하고 XB는 분수정, XC는시수정으로 설정하였습니다.
+      그리고 M51은 오전,M52는 오후를 설정하여 12시가넘어가면 오전과 오후가 바뀌게 설정을 했고 M50은 1초에 한번씩 깜빡이는 전등으로 설정을 하였습니다.
+      그다음 디지털시계의 숫자가 표시되는부분은 GT디자이너 프로그램에서 Numerical display 로 창을생성후 숫자를 2자리만 표시하기떄문에 digit를 2로 설정하고
+      지정메모리는 초 부분을 D1, 분은 D2, 시간쪽을 D3로 설정해두었고 또하나 창을 만들어 그곳에는 숫자표시를 FND로 표시하는 디지털시계를 만들었습니다.
+      FND는 bit램프를 하나하나 생성하여 7개를 FND 모양으로 배치하여 숫자를 표시하도록 하였고 초 부분의 1의자리 FND부터 M100,M101~M106까지 설정해준 후
+      그다음 십의자리는 M110부터 M116, 분을 나타내는 1의자리에는 M120부터 M126 이런식으로 쭉 생성해 주었습니다. 그리고 2개의 창을 왔다갔다 할수있는 버튼을 생성했는데
+      GT디자이너 프로그램 좌측 위에메뉴에서 베이스스크린 아이콘을 눌러서 창을 추가하고 설정하여 주었습니다.
+    </p>
+    <P>
+      그리고 래더프로그램 처음부분의 X1을 내부메모리 M1과 연결하여 자기유지회로 설정을 해두어서 스타트버튼인 X1을 한번만 누르면 쭉 동작이 지속되게 해놓았습니다.
+      그다음 옆에 X2를 b접점으로 연결하여 정지버튼인 x2를 누르면 자기유지회로를 끊어서 시계를 정지시킬 수있게 해놨고
+      x3은 리셋버튼이며 뒤에 리셋설정을 붙혀놓았습니다. 그리고 이제 x1을 눌러서 저기유지 회로가 작동되면 M1이 켜지게 되고
+      M1이 켜지면 옆에있는 SM412(자동으로 1초간격으로 신호를주는 1초클럭)가 작동되게됩니다. 그 이후 1초에 한번씩 C1(신호에 한번씪 카운터를 세는 동작)에 신호를 주게되고
+      C1에 한번씩 신호가가서 59초가되고 60초가 되었을떄 C2가 동작하게 됩니다 그러면서 동시에 초시간은 60초후 초기화가 되어야하기 떄문에 뒤에 C2에 C1,C2리셋을 붙혀주어서 초기화시켜줍니다.
+      그리고 계속해서 병렬연결로 MOVP C1 D1 으로 C1의 데이터를 D1으로 보내주게 하여 시간을 나타내는 창에 초숫자가 작동하게 하였습니다.
+      그다음 작화 화면 2개를 연동하여 왔다갔다 하여야 하기떄문에 FND로 디스플레이 되는 시계쪽도 쭉 병렬로 이어나갔습니다.
+    </P>
+    <P>
+      병렬로 먼저 FND쪽은
+      /P D1 K10 D10 으로 D1의 데이터를 10으로 나누게되는데 D1에는 C1의 1~59까지의 숫자가있고 그숫자를 10으로 나누어 몫을 그대로 D10(임의로지정),나머지는 지정한 D10에+1 한게
+      되기떄문에 나머지는 D11로지정하게 됩니다.
+      이렇게 되면 몫은 10의자리가 되고 나머지는 1의자리가 되어 초부분의 일의자리 FND는 [SEGP D11 K2M100] 으로 나타내며 십의자리는 [SEGP D10 K2M110] 으로 나타내러줍니다.
+      이때도 SEGP는 FND를 디스플레이할떄 붙여주는 동작이고 K2M100은 세그먼트일의자리가 M100~M106까지 설정해 두었기 떄문에 K2=8bit 8개의 비트를 셋팅하는것이고 K2M100은 8개의
+      비트가있고 그안에 M100~M106의 7개의 bit가 있다는 뜻입니다.
+      그렇게해서 [SEGP D11 K2M100] 이란 나머지 1의자리인 D11을 K2M100에 데이터를 보내어 세븐세그먼트로 표시한다는 뜻입니다.
+      이렇게 초부분의 병렬에 입력으로 XA도 연결하여 초수정 버튼을 누르면 초가 1씩 카운트되는식으로 수정할수있게 해주는식으로 마무리해주었습니다.
+      이렇게 초 부분이 마무리 되었고
+    </P>
+    <P>
+      분으로 넘어가서 아까전의 C1의 카운터가 60이되면 C2가 동작하게되고 곧바로 분 부분의 C3를 작동시키게 됩니다 C3도 마찬가지로 59까지 카운트 된 후 C4를 동작시키게 되면 뒤에 C3,C4리셋을
+      만들어 초기화 되도록 해두었고
+      MOVP C3 D2 로 C3의 데이터를 시간을나타내는 D2에 보내도록 했고 아까와 마찬가지로 설정해줍니다.
+      그다음 아까의 C2가 작동될떄 전에 언급했던 C1,C2리셋을 달아주고 세그먼트 K2M100과 K2M110 그리고 D1, D10,D11 모두 리셋 시켜주었습니다.
+    </P>
+    <P>
+      계속 이어서 시간부분의 동작을 위해 아까 분부분의 C4가 동작을 하게 되면 C5가 작동하여 11까지 카운트하다 12가 되면 C6가 동작하게 됩니다.
+      그 다음은 전과 마찬가지로 C5의 데이터를 D3에 보내주고 세븐세그먼트를 설정해주었습니다.
+      그리고나서 아까전의 분부분 리셋을 해주기 위해 C4가 동작할시 C3,C4를 리셋해주고 세븐세그먼트들과 D2, D12,D13도 함꼐 리셋해주도록 설정해줍니다.
+      다 끝난후 이번에는 오전 오후 넘어가는 설정을 해주기위해 시간이 끝나는 C6에 [FF M777] 을 출력으로 뺴줍니다.
+      여기서 FF는 한번신호가 갔다가 꺼지면 계속 킨상태를 유지하고 또 신호가 한번 들어왔다 꺼지면 꺼지는 동작을하는 플리플롭동작입니다. (M777은 임의로 지정해주었습니다)
+      그렇게 해준 후 M777이 동작할떄는 M52(오후)에 불이 들어오고 동작하지 않을떄에는 M51(오전)에 불이 들어오게 하여 오전과 오후를 표시하도록 하였습니다.
+      그다음으로 C6가 동작할떄 아까의 시간부분 동작들의 리셋들을 시켜주고 마지막항목으로 리셋버튼 입렵인 X3에 [FMOVP K0 C0 K10](십진수 0을 C0,C1~C10까지에 대입하여 0으로 리셋) 전체
+      C 카운터들을 리셋시켜주고
+      같은 방식으로 D1,D2,D3 그리고 FND의 K2M100~K2M150까지 전부다 리셋을 해주어 X3리셋버튼을 누르면 전체가 초기화도도록 설정을 해주었습니다.
+
+    </p>
+
+
+    </section>
+    <hr>
+
+
+    
+
+    <section class="col-md-6 col-sm-12 tm-program-block">
+      <header class="tm-program-header">
+    <i class="fas fa-5x fa-unlock-alt tm-program-icon"></i>
+    <h3 class="tm-program-h">암호설정 작화및 작동</h3>
+  
+    <br>
+    <br>
+    
+    </section>
+      <video src="videos/SW.mp4" width="1300" height="500" autoplay controls></video>
+      <br>
+      <br>
+      <br>
+      <br>
+    </header>
+    <img src="img/222.jpg" width="1000" height="1000" alt="Image" class="tm-activity-img" />
+    <hr>
+    <p>
+      이 암호설정하는 프로그램 같은 경우에는 먼저 시작스위치를 누르고 암호 네자리를 설정한 후 
+      확인을 눌러줍니다 이게 암호를 저장한것이고 이제 스위치를 한번더 눌러서 꺼주고 이다음에 암호 네자리를 누를떄 맞으면 
+      램프에 3초간 불이들어오고 틀리면 부저에 불리들어오는 방식입니다. 
+      <br>
+      <br>
+      먼저 스위치는 XA, 그리고 확인버튼은 XB, 첫번쨰 설정암호는 D1~D4로 하고 확인암호는 D11~D14로 했습니다. 
+      그다음 숫자입력 스위치 1234는 X1,X2,X3,X4로 했으며 램프는 Y30, 부저는 Y35로 했습니다. 
+      그리고 이제 작화에 들어가서는 XA를 눌러서 스타트를 해주고 이때 마스터컨트롤 동작으로 암호 설정부분과 입력부분을 나눠주기위해 
+      MC N0 M500을 설정부, 이따 입력부에는 MC N1 M501로 해주었습니다. 그렇게 XA를 부르면 MC N0 M500 이 시작되고 X1~X4에 카운터 C1 K5를 달아주어서 4자리까지 카운트를 하게 했고 
+      XA스위치를 한번 더 누르면 리셋이되어야하기에 C1리셋도 달아줍니다. 그다음 각 X1~X4를 눌렀을떄 데이터를 각 D1~D4에 전달되도록 해주었고 
+      그후 그다음 입력부분을 만들기위해 우선 스위치XA가 꺼졌을때 두번쨰 마스터동작인 MC N1 M501이 시작되게 해주고 
+      똑같이 줍니다 이번에는 C2이고 각 전달되는 데이터도 D11~D14가 됩니다. 그렇게 다 끝나면 각 D1과 D11,D2와 D12 이렇게 각각 맞으면서 확인버튼 XB까지 되어있으면 M10
+      아닐떄는 M11로 해주어서 M10과 M11을 각각 원샷회로로 연결해주어서 M10은 3초간 램프에 불이들어오고 M11은 2초간 부저가 울리도록 해줍니다. 
+      
+    </p>
+
+
+    </section>
+    <hr>
+
+    
+  </div>
+  </div>
+
+  <!-- Activities -->
+  <div class="container" id="activities">
+    <div class="row">
+      <div class="col-12">
+        <div class="tm-parallax">
+          <header class="tm-parallax-header">
+            <h2 class="">PLC의 동작 요소들</h2>
+          </header>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="tm-activity-block">
+          <div class="tm-activity-img-container">
+            <img src="img/자기유지.JPG" width="500" height="200" alt="Image" class="tm-activity-img" />
+          </div>
+          <div class="tm-activity-block-text">
+            <h3 class="tm-text-blue"></h3>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="tm-activity-block mr-lg-0 ml-lg-auto">
+          <div class="tm-activity-img-container">
+
+          </div>
+          <div class="tm-activity-block-text">
+            <h3 class="tm-text-blue">1. 자기유지 동작</h3>
+            <p>
+              X1을 입력으로 하고 출력을 Y30으로 둔다음 X1에 병렬로 다시 Y30을 연결해 줘서 X1을 눌렀을떄 Y30이 켜지면 자기유지가 되어 X1을 끄더라도 계속 신호가유지되도록 하는 동작
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-lg-6">
+        <div class="tm-activity-block">
+          <div class="tm-activity-img-container">
+            <img src="img/int.JPG" width="500" height="200" alt="Image" class="tm-activity-img" />
+          </div>
+          <div class="tm-activity-block-text">
+            <h3 class="tm-text-blue"></h3>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="col-lg-6">
+        <div class="tm-activity-block mr-lg-0 ml-lg-auto">
+          <div class="tm-activity-img-container">
+
+          </div>
+          <div class="tm-activity-block-text">
+            <h3 class="tm-text-blue">2. 인터록 동작</h3>
+            <p>
+              입력X1에는 Y30출력으로두고 X2에는 Y31을 출력으로 둬서 각각 자기유지를 해준 상태에서 X1쪽에는 b접점으로 Y31을, X2에는 Y30을 줘서 어느한쪽이 켜지면 반대쪽은 반드시 꺼지게
+              동작되는 구조입니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="tm-activity-block">
+          <div class="tm-activity-img-container">
+            <img src="img/count.JPG" width="500" height="200" alt="Image" class="tm-activity-img" />
+          </div>
+          <div class="tm-activity-block-text">
+            <h3 class="tm-text-blue"></h3>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="tm-activity-block mr-lg-0 ml-lg-auto">
+          <div class="tm-activity-img-container">
+
+          </div>
+          <div class="tm-activity-block-text">
+            <h3 class="tm-text-blue">3. 카운터 동작</h3>
+            <p>
+              카운터동작은 입력이 들어가는 횟수만큼 카운트되어서 지정된 수많큼 카운트되었을떄 해당 카운터가 동작되는 구조입니다.
+              예를들어 c1 k10 이라면 입력이 열번쨰 들어왔을떄 c1이 동작하게 되는 구조입니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="tm-activity-block">
+          <div class="tm-activity-img-container">
+            <img src="img/timer.JPG" width="500" height="200" alt="Image" class="tm-activity-img" />
+          </div>
+          <div class="tm-activity-block-text">
+            <h3 class="tm-text-blue"></h3>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="tm-activity-block mr-lg-0 ml-lg-auto">
+          <div class="tm-activity-img-container">
+
+          </div>
+          <div class="tm-activity-block-text">
+            <h3 class="tm-text-blue">4. 타이머 동작</h3>
+            <p>
+              타이머 동작은 입력이 들어왔을떄 해당타이머에 지정된 시간만큼 타이머가 돌아가기 시작하고 지정된 시간이 다 지났을떄 해당 타이머가 동작을 시작하게 됩니다.
+              예를들면 T1 K50 이라면 T1에 입력이 들어오자마자 T1은 0초부터 5초까지 카운트가 들어가고 5초가 되는 순간 T1이 동작하게 되는 구조입니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="tm-activity-block">
+          <div class="tm-activity-img-container">
+            <img src="img/flike.JPG" width="500" height="200" alt="Image" class="tm-activity-img" />
+          </div>
+          <div class="tm-activity-block-text">
+            <h3 class="tm-text-blue"></h3>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="tm-activity-block mr-lg-0 ml-lg-auto">
+          <div class="tm-activity-img-container">
+
+          </div>
+          <div class="tm-activity-block-text">
+            <h3 class="tm-text-blue">5. 플리커 동작</h3>
+            <p>
+              X1입력에 T2비접점과 출력으로 T1타이머를 달아서 T1이 동작하게 되면 T2와 Y30을 동시에 연결하여 T2가 켜짐과 동시에 T2가 켜지기 전까지 Y30을 쭉 키게 되고 시간이 다되어
+              T2가 켜지면 X1에 직렬로 연결되어있던 b접점 T2가 켜지며 X1의 입력이 끊기게 되면서 T1도 끊어지게 됩니다 T1이꺼져서 T2도 꺼지게 되고 다시 X1입력이 살아나서 T1이 카운트되기
+              시작합니다.
+              이런식으로 T1의 카운트되는 시간동안은 Y30이 꺼져있게 되고 T2가 카운트되는 동안은 Y30이 켜져있게 되면서 T1과 T2를 0.5나 1초 정도로 빠르게 설정해 놓으면 계속 반복해서
+              깜빡거리는 동작을 하게 됩니다.
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <section class="container tm-company-section" id="company">
+    <div class="row">
+      <div class="col-xl-9 col-lg-8 col-md-12 tm-company-left">
+        <div class="tm-company-about">
+          <div class="tm-company-img-container">
+            <img src="img/1@.jpg" width="400" height="400" alt="Image" />
+            <img src="img/2@.jpg" width="400" height="400" alt="Image" />
+          </div>
+          <div class="tm-company-about-text">
+            <header>
+              <h2 class="tm-company-about-header">PLC의 원리</h2>
+            </header>
+            <br>
+            <br>
+
+
+
+            <p>
+              먼저 PLC의 제어시스템의 기본구조는 컴퓨터로 PLC작화프로그램을 작화 한 후 PLC와 연동시키면 PLC는 작화된 프로그램동작에 따라 그대로 작동하게 되고 이것을 터치판넬등으로 원격으로도
+              조정할수있습니다.
+            </p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <p class="mb-4">
+              마이크로프로세서(microprocessor) 및 메모리를 중심으로 한 cpu 모듈과
+              각부에 전원을 공급하는 전원부, 외부기기와 신호를 연결시켜주는 입,출력부 및
+              특수기능을 수행하는 장치로 구성되어있습니다.
+              소형전자벨브나 point lamp와 같은 가벼운 부하는 plc로 직접 구동이 가능하지만
+              3상모터나 용량이 큰 부하 등은 콘텍터나 중간 릴레이를 매개로 하여 구동시킵니다.
+
+
+            </p>
+
+            <a href="#" class="btn tm-btn tm-float-right">위로 가기</a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="col-xl-9 col-lg-4 col-md-12 tm-company-right  ml-lg-auto mr-lg-0">
+        <div class="tm-company-right-inner">
+          <ul class="nav nav-tabs" id="tmCompanyTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link tm-nav-link-border-right active" id="vision-tab" data-toggle="tab" href="#vision"
+                role="tab" aria-controls="vision" aria-selected="true">일체형 PLC</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tm-no-border-right" id="mission-tab" data-toggle="tab" href="#mission" role="tab"
+                aria-controls="mission" aria-selected="false">모듈형 PLC</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="tmTabContent">
+            <div class="tab-pane fade show active" id="vision" role="tabpanel" aria-labelledby="vision-tab">
+              <img src="img/일체형.jpg" alt="Image" class="tm-activity-img" />
+              <p>
+                비교적 소형의 자동화시스템에 사용되는 PLC입니다. 전원장치, CPU, 메모리, 입력 및 출력의
+                모든 기능이 하나의 케이스 안에 설치되어있고 소형입니다. 또한 취급이 간단하고 저가이고 확장유닛을
+                장착하면 입출력 점수를 확장할 수 있으나 입출력 점수에는 한계가 있습니다.
+                그리고 일체형 PLC는 간단한 설비의 자동화나 단독적인 제어설비의 자동화에 이용됩니다.
+              </p>
+
+            </div>
+            <div class="tab-pane fade" id="mission" role="tabpanel" aria-labelledby="mission-tab">
+              <img src="img/모듈형.jpg" alt="Image" class="tm-activity-img" />
+              <p>
+                베이스유닛에 파워유닛과 CPU유닛을 기본으로 설치하고 자동화 대상의 기능에 따라
+                여러 종류의 입출력 장치를 추가하여 사용할 수 있습니다. 또한 일체형에 비해 고속처리 및
+                대용량 데이터의 처리가 가능하며 PLC간 통신이나 상위 컴퓨터와의 다양한 고속의
+                동신이 지원됩니다. 그리고 모듈은 입력,출력, 입/출력 혼용, 통신, 고속카운터, PID제어,
+                아날로그 입출력, 위치결정 유닛 및 각종 통신모듈 등이 있습니다.
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact -->
+  <section class="container tm-contact-section" id="contact">
+    <div class="row">
+      <div class="col-xl-5 col-lg-6 col-md-12 tm-contact-left">
+        <div class="tm-contact-form-container ml-auto mr-0">
+          <header>
+            <h2 class="tm-contact-header">문의 및 질문을 보내주세요</h2>
+          </header>
+          <form id="contact-form">
+            <input type="hidden" name="contact_number">
+            <div class="form-group">
+              <input type="text" id="contact_name" name="to_name" class="form-control" placeholder="Name" required />
+            </div>
+            <div class="form-group">
+              <input type="email" id="contact_email" name="from_name" class="form-control" placeholder="Email"
+                required />
+            </div>
+            <div class="form-group">
+              <textarea rows="5" id="contact_message" name="message" class="form-control" placeholder="Message"
+                required></textarea>
+            </div>
+            <div class="tm-text-right">
+              <button type="submit" class="btn tm-btn tm-btn-big">
+                Send It
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-7 col-lg-6 col-md-12 tm-contact-right">
+        <div class="tm-contact-figure-block">
+          <figure class="d-inline-block">
+            <img src="img/tt@.jpg" alt="Image" class="img-fluid" />
+            <figcaption class="tm-contact-figcaption">
+              .
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="container tm-footer">
+    <div class="row tm-footer-row">
+      <p class="col-md-10 col-sm-12 mb-0">
+        .
+        <a rel="nofollow" href="https://www.ls-electric.com/ko/education/step1?v=1/" class="tm-footer-link">국내 PLC
+          기업</a>
+      </p>
+      <div class="col-md-2 col-sm-12 scrolltop">
+        <div class="scroll icon"><i class="fa fa-4x fa-angle-up"></i></div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <!-- Single Page Nav plugin works with this version of jQuery -->
+  <script src="js/jquery.singlePageNav.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script>
+    /**
+     * detect IE
+     * returns version of IE or false, if browser is not Internet Explorer
+     */
+    function detectIE() {
+      var ua = window.navigator.userAgent;
+
+      var msie = ua.indexOf("MSIE ");
+      if (msie > 0) {
+        // IE 10 or older => return version number
+        return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)), 10);
+      }
+
+      var trident = ua.indexOf("Trident/");
+      if (trident > 0) {
+        // IE 11 => return version number
+        var rv = ua.indexOf("rv:");
+        return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
+      }
+
+      // var edge = ua.indexOf('Edge/');
+      // if (edge > 0) {
+      //     // Edge (IE 12+) => return version number
+      //     return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+      // }
+
+      // other browser
+      return false;
+    }
+
+    function setVideoHeight() {
+      const videoRatio = 1920 / 1080;
+      const minVideoWidth = 400 * videoRatio;
+      let secWidth = 0,
+        secHeight = 0;
+
+      secWidth = videoSec.width();
+      secHeight = videoSec.height();
+
+      secHeight = secWidth / 2.13;
+
+      if (secHeight > 600) {
+        secHeight = 600;
+      } else if (secHeight < 400) {
+        secHeight = 400;
+      }
+
+      if (secWidth > minVideoWidth) {
+        $("video").width(secWidth);
+      } else {
+        $("video").width(minVideoWidth);
+      }
+
+      videoSec.height(secHeight);
+    }
+
+    // Parallax function
+    // https://codepen.io/roborich/pen/wpAsm
+    var background_image_parallax = function ($object, multiplier) {
+      multiplier = typeof multiplier !== "undefined" ? multiplier : 0.5;
+      multiplier = 1 - multiplier;
+      var $doc = $(document);
+      $object.css({ "background-attatchment": "fixed" });
+      $(window).scroll(function () {
+        var from_top = $doc.scrollTop(),
+          bg_css = "center " + multiplier * from_top + "px";
+        $object.css({ "background-position": bg_css });
+      });
+    };
+
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 50) {
+        $(".scrolltop:hidden")
+          .stop(true, true)
+          .fadeIn();
+      } else {
+        $(".scrolltop")
+          .stop(true, true)
+          .fadeOut();
+      }
+
+      // Make sticky header
+      if ($(this).scrollTop() > 158) {
+        $(".tm-nav-section").addClass("sticky");
+      } else {
+        $(".tm-nav-section").removeClass("sticky");
+      }
+    });
+
+    let videoSec;
+
+    $(function () {
+      if (detectIE()) {
+        alert(
+          "Please use the latest version of Edge, Chrome, or Firefox for best browsing experience."
+        );
+      }
+
+      const mainNav = $("#tmMainNav");
+      mainNav.singlePageNav({
+        filter: ":not(.external)",
+        offset: $(".tm-nav-section").outerHeight(),
+        updateHash: true,
+        beforeStart: function () {
+          mainNav.removeClass("show");
+        }
+      });
+
+      videoSec = $("#tmVideoSection");
+
+      // Adjust height of video when window is resized
+      $(window).resize(function () {
+        setVideoHeight();
+      });
+
+      setVideoHeight();
+
+      $(window).on("load scroll resize", function () {
+        var scrolled = $(this).scrollTop();
+        var vidHeight = $("#hero-vid").height();
+        var offset = vidHeight * 0.6;
+        var scrollSpeed = 0.25;
+        var windowWidth = window.innerWidth;
+
+        if (windowWidth < 768) {
+          scrollSpeed = 0.1;
+          offset = vidHeight * 0.5;
+        }
+
+        $("#hero-vid").css(
+          "transform",
+          "translate3d(-50%, " + -(offset + scrolled * scrollSpeed) + "px, 0)"
+        ); // parallax (25% scroll rate)
+      });
+
+      // Parallax image background
+      background_image_parallax($(".tm-parallax"), 0.4);
+
+      // Back to top
+      $(".scroll").click(function () {
+        $("html,body").animate(
+          { scrollTop: $("#home").offset().top },
+          "1000"
+        );
+        return false;
+      });
+    });
+  </script>
+</body>
+
+</html>
